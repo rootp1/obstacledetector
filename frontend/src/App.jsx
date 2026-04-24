@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 
-const API_URL = 'http://localhost:5000/detect-video'
+const API_URL = 'https://rootp1-obstacledetector.hf.space/detect-video'
 
 function App() {
   const [file, setFile] = useState(null)
