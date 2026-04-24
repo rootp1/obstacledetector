@@ -1,10 +1,19 @@
 ---
-title: Obstacledetector
-emoji: 👁
+title: Obstacle Detector
+emoji: 🐳
 colorFrom: blue
-colorTo: pink
+colorTo: indigo
 sdk: docker
+app_port: 7860
 pinned: false
 ---
 
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+# Obstacle Detector
+
+Flask + ONNX obstacle detection backend deployed as a Hugging Face Docker Space.
+
+## API
+
+- `GET /` health check
+- `POST /detect` image detection (base64 JSON)
+- `POST /detect-video` video detection (multipart form-data with `video`)

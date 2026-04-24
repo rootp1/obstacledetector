@@ -10,6 +10,11 @@ import tempfile
 app = Flask(__name__)
 CORS(app)  # React se connection allow karta hai
 
+
+@app.route("/", methods=["GET"])
+def home():
+    return jsonify({"status": "ok", "message": "Obstacle detector backend is running."})
+
 # ══ CONFIG (same as tumhara code) ══
 FOCAL_LENGTH = 540
 CAMERA_HEIGHT = 0.5
@@ -171,5 +176,6 @@ def detect_video():
             os.remove(temp_path)
 
 if __name__ == "__main__":
-    print("✅ Backend chal raha hai — http://localhost:5000")
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get("PORT", 7860))
+    print(f"✅ Backend chal raha hai — http://0.0.0.0:{port}")
+    app.run(host="0.0.0.0", port=port, debug=False)
